@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     ImageButton playButton;
     Float inc = 0.1f,textInc=0.5f;
     TextView playTextView;
+    float currentXpos,currentYpos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         background = findViewById(R.id.imageView);
         playButton = findViewById(R.id.playButton);
         playTextView = findViewById(R.id.playTextView);
+        currentXpos = playButton.getScaleX();
+        currentYpos = playButton.getScaleY();
     }
 
     @Override
@@ -48,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
                 }else{
                     textInc = 0.5f;
                 }
+
                 playButton.setAlpha(1.0f-inc);
+                playButton.setScaleX(currentXpos+0.5f*inc);
+                playButton.setScaleY(currentYpos+0.5f*inc);
                 inc += 0.2f;
                 if(inc >= 0.8f){
                     inc = 0.2f;
@@ -57,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish(){
                 playButton.setAlpha(1.0f);
                 playTextView.setAlpha(textInc);
+                playButton.setScaleX(currentXpos);
+                playButton.setScaleY(currentYpos);
                 startTimer(t);
             }
         }.start();
