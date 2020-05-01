@@ -1,9 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Project_101</string>
     <string name="info">BG_IMG</string>
     <string name="title">COooOL</string>
     <string name="coolName">Cooooool</string>
-    <string name="play">Play</string>
+    <string name="play" tools:ignore="StringEscaping">Let\'s Play</string>
     <string name="highScore">High Score : 00</string>
     <string name="setting">Setting</string>
     <string name="about">Who Are We?</string>

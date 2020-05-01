@@ -14,13 +14,15 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     ImageView background;
     ImageButton playButton;
-    Float inc = 0.1f;
+    Float inc = 0.1f,textInc=0.5f;
+    TextView playTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         background = findViewById(R.id.imageView);
         playButton = findViewById(R.id.playButton);
+        playTextView = findViewById(R.id.playTextView);
     }
 
     @Override
@@ -37,16 +40,23 @@ public class MainActivity extends AppCompatActivity {
         startTimer(30000);
     }
     public void startTimer(final long t){
-        new CountDownTimer(t, 1000){
+        new CountDownTimer(t, 400){
             public void onTick(long milliUntilFinished){
+                playTextView.setAlpha(textInc);
+                if(textInc==0.5f){
+                    textInc = 1.0f;
+                }else{
+                    textInc = 0.5f;
+                }
                 playButton.setAlpha(1.0f-inc);
-                inc += 0.15f;
+                inc += 0.2f;
                 if(inc >= 0.8f){
-                    inc = 0.1f;
+                    inc = 0.2f;
                 }
             }
             public void onFinish(){
                 playButton.setAlpha(1.0f);
+                playTextView.setAlpha(textInc);
                 startTimer(t);
             }
         }.start();
@@ -59,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-       // menuInflater.inflate(R.menu.menu_opt,menu);
+//        menuInflater.inflate(R.menu.menu_opt,menu);
         return true;
     }
 }
