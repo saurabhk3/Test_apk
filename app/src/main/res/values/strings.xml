@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Project_101</string>
+    <string name="info">BG_IMG</string>
+    <string name="title">COooOL</string>
+    <string name="coolName">Cooooool</string>
+    <string name="play">Play</string>
+    <string name="highScore">High Score : 00</string>
+    <string name="setting">Setting</string>
+    <string name="about">Who Are We?</string>
+    <string name="dummy">Dummy Opt</string>
+    <string name="submenu1">Opt 1</string>
+    <string name="submenu2">Opt 2</string>
+
+</resources>
